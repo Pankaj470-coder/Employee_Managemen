@@ -24,7 +24,7 @@ public class Employee {
     @Id
     @Column(unique = true, nullable = false)
     @NotBlank(message = "EmployeeId is mandatory")
-    @Pattern(regexp = "^[a-zA-Z]{3}\\w*$", message = "Employee ID must start with three alphabetic characters")
+    @Pattern(regexp = "^[a-zA-Z]{1}\\w{1,}$", message = "Employee ID must start with One alphabetic character")
     private String employeeId;
 
     @NotBlank(message = "First Name is mandatory")
