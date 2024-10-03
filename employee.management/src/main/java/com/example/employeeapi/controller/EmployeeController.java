@@ -25,13 +25,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @PostMapping("/add")
+    @PostMapping("")
     public ResponseEntity<Employee> addEmployee(@Valid @RequestBody Employee employee) {
         Employee savedEmployee = employeeService.saveEmployee(employee);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
-    @GetMapping("/tax/{id}")
+    @GetMapping("/{id}/tax-deductions")
     public ResponseEntity<TaxCalculationResponse> getTaxDetails(@PathVariable Long id) {
         TaxCalculationResponse response = employeeService.calculateTax(id);
         return new ResponseEntity<>(response, HttpStatus.OK);
